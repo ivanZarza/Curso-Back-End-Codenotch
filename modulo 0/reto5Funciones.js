@@ -24,3 +24,15 @@ function numeroPar(num) {
 
 numeroPar(684);
 
+function reverso(string) {
+    return string.split('').reverse().join('');
+}
+
+console.log(reverso('hola mundo'))
+
+function revertirOrdenPalabras(frase) {
+    return frase.split(' ').reverse().join(' ');
+}
+
+console.log(revertirOrdenPalabras('hola mundo'))
+
