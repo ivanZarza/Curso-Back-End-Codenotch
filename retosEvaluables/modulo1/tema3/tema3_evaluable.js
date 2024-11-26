@@ -67,15 +67,18 @@ if(anyoActual - personas[3].anyoNacimiento >= 30){
 console.log(anyoActual - personas[3].anyoNacimiento);
 }
 
-if(personas[0].colorPelo === 'negro' && anyoActual - personas[0].dni.anyoExpedicion > 20 ){
+if((personas[0].colorPelo === 'negro' && anyoActual - personas[0].dni.anyoExpedicion > 20) ||
+(anyoActual - personas[0].anyoNacimiento <18 && (personas[0].aficiones.includes('comer') || personas[0].aficiones.includes('dormir') ))){
 console.log(personas[0].dni.lugarNacimiento);
 }
 
-if(personas[1].colorPelo === 'negro' && anyoActual - personas[1].dni.anyoExpedicion > 20 ){
+if((personas[1].colorPelo === 'negro' && anyoActual - personas[1].dni.anyoExpedicion > 20) ||
+(anyoActual - personas[1].anyoNacimiento <18 && (personas[1].aficiones.includes('comer') || personas[1].aficiones.includes('dormir') ))){
 console.log(personas[1].dni.lugarNacimiento);
 }
 
-if(personas[2].colorPelo === 'negro' && anyoActual - personas[2].dni.anyoExpedicion > 20){
+if((personas[2].colorPelo === 'negro' && anyoActual - personas[2].dni.anyoExpedicion > 20) ||
+(anyoActual - personas[2].anyoNacimiento <18 && (personas[2].aficiones.includes('comer') || personas[2].aficiones.includes('dormir') ))){
 console.log(personas[2].dni.lugarNacimiento);
 }
 
