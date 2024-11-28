@@ -63,3 +63,12 @@ const calcuArrow = (operacion, num1, num2 = 0) => {
 
 let arrayParametros = [sum, 8, 11];
 console.log('CALCUARROW',calcuArrow(...arrayParametros));
+
+let imprime = texto => console.log(!texto ? 'No hay texto' : texto);
+
+imprime('Hola');
+imprime();
+
+let multiply = (x,y) => x * y;
+
+console.log(multiply(2,3));
