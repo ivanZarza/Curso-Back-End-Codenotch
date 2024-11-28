@@ -18,4 +18,4 @@ if (prueba2 === true) {
     console.log('El valor de prueba2 es null');
 } else {
     console.log('El valor de prueba2 es undefined');
-}
+}sdfdf
