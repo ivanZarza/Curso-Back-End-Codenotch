@@ -4,8 +4,13 @@
   "description": "",
   "main": "tema_repaso_evaluable.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "for": "tsc retos1/*.ts --target es5 && node retos1/buclesFor.js",
+    "while": "tsc retos1/*.ts --target es5 && node retos1/buclesWhile.js",
+    "invocacion": "tsc retos1/*.ts --target es5 && node retos1/invocacion.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
 }

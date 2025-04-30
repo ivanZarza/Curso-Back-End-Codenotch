@@ -1,0 +1,173 @@
+import { Movie } from "./movie.js";
+import { Imdb } from "./imdb.js";
+import { Professional } from "./professional.js";
+import { writeFileSync, readFileSync } from 'fs';
+
+
+let manquiña = new Professional('Manuel Manquiña', 71, 84, 1.75, false, 'Española', 0, 'Actor');
+let karraElejalde = new Professional('Karra Elejalde', 60, 85, 1.90, false, 'Española', 0, 'Actor');
+let carlosArguiñano = new Professional('Carlos Arguiñano', 71, 80, 1.35, false, 'Española', 0, 'Actor');
+let jordiCruz = new Professional('Jordi Cruz', 42, 75, 1.75, false, 'Española', 0, 'Actor');
+let mariaDeMedeiros = new Professional('Maria de Medeiros', 59, 60, 1.58, false, 'Portuguesa', 0, 'Actriz');
+let albertoSanJuan = new Professional('Alberto San Juan', 51, 99, 1.63, false, 'Española', 0, 'Actor');
+let franciscoRabal = new Professional('Francisco Rabal', 75, 105, 1.79, true, 'Española', 0, 'Actor');
+let fernandoGuillén = new Professional('Fernando Guillén', 80, 84, 1.45, false, 'Española', 0, 'Actor');
+let albertPla = new Professional('Albert Pla', 135, 77, 1.72, false, 'Española', 0, 'Actor');
+let juanmaBajoUlloa = new Professional('Juanma Bajo Ulloa', 52, 79, 1.67, false, 'Española', 0, 'Director');
+let oubiña = new Professional('Oubiña', 50, 85, 1.75, false, 'Gallega', 1, 'Guionista');
+let pabloEscobar = new Professional('Pablo Escobar', 65, 80, 1.75, false, 'Colombiana', 1, 'Productor');
+let reparto = [manquiña, karraElejalde, carlosArguiñano, jordiCruz, mariaDeMedeiros, albertoSanJuan, franciscoRabal, fernandoGuillén, albertPla];
+
+let airbag = new Movie('Airbag', 1997, 'Española', 'Comedia');
+airbag.setActors(reparto);
+airbag.setDirector(juanmaBajoUlloa);
+airbag.setWriter(oubiña);
+airbag.setProducer(pabloEscobar);
+airbag.setLanguage('Español');
+airbag.setPlataforma('Toilet times');
+airbag.setIsMCU(false);
+airbag.setMainCharacterName('Carlos Arguiñano');
+airbag.setDistributor('La Vaquinha tiesa');
+
+let airbag2 = new Movie('Airbag 2', 2022, 'Española', 'Comedia');
+airbag2.setActors(reparto);
+airbag2.setDirector(juanmaBajoUlloa);
+airbag2.setWriter(oubiña);
+airbag2.setProducer(pabloEscobar);
+airbag2.setLanguage('Español');
+airbag2.setPlataforma('Toilet times');
+airbag2.setIsMCU(false);
+airbag2.setMainCharacterName('Carlos Arguiñano');
+airbag2.setDistributor('La Vaquinha tiesa');
+
+let airbag3 = new Movie('Airbag 3', 2025, 'Española', 'Comedia');
+airbag3.setActors(reparto);
+airbag3.setDirector(juanmaBajoUlloa);
+airbag3.setWriter(oubiña);
+airbag3.setProducer(pabloEscobar);
+airbag3.setLanguage('Español');
+airbag3.setPlataforma('Toilet times');
+airbag3.setIsMCU(false);
+airbag3.setMainCharacterName('Carlos Arguiñano');
+airbag3.setDistributor('La Vaquinha tiesa');
+
+
+let peliculas = [airbag, airbag2, airbag3];
+
+let baseDatos = new Imdb(peliculas);
+
+/* baseDatos.printImdb(); */
+
+let aJson = JSON.stringify(baseDatos);
+
+/* console.log(aJson); */
+
+writeFileSync('imdbBBDD.json', aJson);
+
+let recuperarDeImdbBBDD = readFileSync('imdbBBDD.json', 'utf-8');
+
+let recuperarImdb = JSON.parse(recuperarDeImdbBBDD);
+
+let imdbRecuperada = new Imdb(recuperarImdb.peliculas);
+
+console.log(imdbRecuperada.peliculas[1].actors[1].name);
+
+// prueba metodos escribirEnFicheroJSON y obtenerInstanciaIMDB
+
+imdbRecuperada.escribirEnFicheroJSON('imdbBBDD2');
+
+imdbRecuperada.obtenerInstanciaIMDB('imdbBBDD2');
+
+console.log(imdbRecuperada.peliculas[1].actors[1].name);
+
+
+movie----------------------------------------------------------------------------------------------------------------------------
+
+import { Professional } from '../retosEvaluables/modulo1/proyectoFinalModulo1/professional.js';
+
+class Movie {
+  public title: string;
+  public releaseYear: number;
+  public actors: Professional[];
+  public nacionality: string;
+  public director: Professional;
+  public writer: Professional;
+  public language: string;
+  public plataforma: string;
+  public isMCU: boolean;
+  public mainCharacterName: string;
+  public producer: Professional;
+  public distributor: string;
+  public genre: string;
+
+  constructor(title: string, releaseYear: number, nacionality: string, genre: string) {
+    this.title = title;
+    this.releaseYear = releaseYear;
+    this.nacionality = nacionality;
+    this.genre = genre;
+    this.actors = [];
+    this.director = new Professional('', 0, 0, 0, false, '', 0, '');
+    this.writer = new Professional('', 0, 0, 0, false, '', 0, '');
+    this.language = '';
+    this.plataforma = '';
+    this.isMCU = false;
+    this.mainCharacterName = '';
+    this.producer = new Professional('', 0, 0, 0, false, '', 0, '');
+    this.distributor = '';
+    
+  }
+
+  setActors(actors: Professional[]): void {
+    this.actors = actors;
+  }
+
+  setDirector(director: Professional): void {
+    this.director = director;
+  }
+
+  setWriter(writer: Professional): void {
+    this.writer = writer;
+  }
+
+  setLanguage(language: string): void {
+    this.language = language;
+  }
+
+  setPlataforma(plataforma: string): void {
+    this.plataforma = plataforma;
+  }
+
+  setIsMCU(isMCU: boolean): void {
+    this.isMCU = isMCU;
+  }
+
+  setMainCharacterName(mainCharacterName: string): void {
+    this.mainCharacterName = mainCharacterName;
+  }
+
+  setProducer(producer: Professional): void {
+    this.producer = producer;
+  }
+
+  setDistributor(distributor: string): void {
+    this.distributor = distributor;
+  }
+
+  printMovie(): void {
+    console.log(`TITLE: ${this.title},\nRELEASE YEAR: ${this.releaseYear},\nNACIONALITY: ${this.nacionality},\nGENRE: ${this.genre},\nACTORS: ${this.actors.map(actor => actor.name).join(', ')},\nDIRECTOR: ${this.director.name},\nWRITER: ${this.writer.name},\nLANGUAGE: ${this.language},\nPLATAFORMA: ${this.plataforma},\nIS MCU: ${this.isMCU},\nMAIN CHARACTER NAME: ${this.mainCharacterName},\nPRODUCER: ${this.producer.name},\nDISTRIBUTOR: ${this.distributor}`);
+    
+  }
+
+}
+
+export { Movie };
+
+finalTest----------------------------------------------------------------------------------------------------------------------------
+import { Professional } from "./professional.js";
+import { Movie } from "./movie.js";
+import { Imdb } from "./imdb.js";
+import { readFileSync,  } from 'fs';
+
+let pofesional = new Professional('Nico', 6, 30, 1.20, false, 'Española', 2, 'Actor');
+
+let recuperarImdb = readFileSync('imdbBBDD.json', 'utf-8');
