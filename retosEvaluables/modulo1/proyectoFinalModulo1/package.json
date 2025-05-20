@@ -1,0 +1,24 @@
+{
+  "name": "proyectofinalmodulo1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc ./*.ts --target es6 --module nodenext",
+    "professional": "npm run build && node ./professionalTest.js",
+    "movie": "npm run build && node ./movieTest.js",
+    "imdbTest": "npm run build && node ./imdbTest.js",
+    "final": "npm run build && node ./finalTest.js"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

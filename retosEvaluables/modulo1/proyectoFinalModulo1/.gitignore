@@ -1,0 +1,8 @@
+
+# Ignorar node_modules
+node_modules/
+
+
+# Ignorar los archivos .js de compilacion
+*.js
+

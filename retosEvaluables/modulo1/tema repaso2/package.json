@@ -1,0 +1,15 @@
+{
+  "name": "tema-repaso2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "point": "tsc ./*.ts --target es5 && node ./pointTest.js",
+  "triangle": "tsc ./*.ts --target es5 && node ./triangleTest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

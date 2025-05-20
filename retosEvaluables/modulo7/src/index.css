@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  width: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #41667b;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #2f4a5a;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+
+button {
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: #646cff;
+  color: white
+}
+
+button:hover {
+  background-color: #535bf2;
+}
+
+button.desplegable {
+  background-color:transparent;
+
+  svg {
+    color: #2f4a5a; /* #41667b */
+  }
+}
+
+
+.active {
+  color: #2f4a5a;
+  text-decoration: underline;
+}
+
+
+@keyframes animacionTitulo {
+  0% {
+    color: white;
+  }
+
+  100% {
+    color: #484ec7;
+  }
+}
+
+.titulo {
+  animation: animacionTitulo 1s linear;
+}
+
+.favorite {
+  background-color: white;
+  color: #f00;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid #f00;
+  padding: 0.4rem 0.5rem;
+}
+
+.favorite:hover {
+  background-color: #f00;
+  color: white;
+}
+
+.isFavorite {
+  background-color: #f00;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 0.4rem 0.5rem;
+}
+
+.isFavorite:hover {
+  background-color: white;
+  color: #f00;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+}
